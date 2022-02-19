@@ -7,18 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A502FBE627BE85E8009EF5DC /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = A502FBE527BE85E8009EF5DC /* Card.swift */; };
+		A502FBEA27BE8DF1009EF5DC /* CardFullscreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A502FBE927BE8DF1009EF5DC /* CardFullscreenView.swift */; };
+		A502FBEC27BE8E22009EF5DC /* CardListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A502FBEB27BE8E22009EF5DC /* CardListView.swift */; };
 		A5668C2C27A0792500B0563F /* QRWalletApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5668C2B27A0792500B0563F /* QRWalletApp.swift */; };
 		A5668C2E27A0792500B0563F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5668C2D27A0792500B0563F /* ContentView.swift */; };
 		A5668C3027A0792700B0563F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5668C2F27A0792700B0563F /* Assets.xcassets */; };
 		A5668C3327A0792700B0563F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5668C3227A0792700B0563F /* Preview Assets.xcassets */; };
+		A56AFEAA27A093E50019CBC3 /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = A56AFEA927A093E50019CBC3 /* CodeScanner */; };
+		A5DD6BA627A14B4100465EE7 /* QR.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DD6BA527A14B4100465EE7 /* QR.swift */; };
+		A5E3832227B2818A00F0209C /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E3832127B2818A00F0209C /* Wallet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A502FBE527BE85E8009EF5DC /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = SOURCE_ROOT; };
+		A502FBE927BE8DF1009EF5DC /* CardFullscreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardFullscreenView.swift; sourceTree = "<group>"; };
+		A502FBEB27BE8E22009EF5DC /* CardListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListView.swift; sourceTree = "<group>"; };
 		A5668C2827A0792500B0563F /* QRWallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QRWallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5668C2B27A0792500B0563F /* QRWalletApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRWalletApp.swift; sourceTree = "<group>"; };
 		A5668C2D27A0792500B0563F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A5668C2F27A0792700B0563F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A5668C3227A0792700B0563F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		A5DD6BA527A14B4100465EE7 /* QR.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = QR.swift; path = ../QR.swift; sourceTree = "<group>"; };
+		A5E3832127B2818A00F0209C /* Wallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wallet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A56AFEAA27A093E50019CBC3 /* CodeScanner in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -51,6 +63,11 @@
 		A5668C2A27A0792500B0563F /* QRWallet */ = {
 			isa = PBXGroup;
 			children = (
+				A5DD6BA527A14B4100465EE7 /* QR.swift */,
+				A502FBE527BE85E8009EF5DC /* Card.swift */,
+				A502FBE927BE8DF1009EF5DC /* CardFullscreenView.swift */,
+				A502FBEB27BE8E22009EF5DC /* CardListView.swift */,
+				A5E3832127B2818A00F0209C /* Wallet.swift */,
 				A5668C2B27A0792500B0563F /* QRWalletApp.swift */,
 				A5668C2D27A0792500B0563F /* ContentView.swift */,
 				A5668C2F27A0792700B0563F /* Assets.xcassets */,
@@ -83,6 +100,9 @@
 			dependencies = (
 			);
 			name = QRWallet;
+			packageProductDependencies = (
+				A56AFEA927A093E50019CBC3 /* CodeScanner */,
+			);
 			productName = QRWallet;
 			productReference = A5668C2827A0792500B0563F /* QRWallet.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +131,9 @@
 				Base,
 			);
 			mainGroup = A5668C1F27A0792500B0563F;
+			packageReferences = (
+				A56AFEA827A093E50019CBC3 /* XCRemoteSwiftPackageReference "CodeScanner" */,
+			);
 			productRefGroup = A5668C2927A0792500B0563F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -137,8 +160,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5E3832227B2818A00F0209C /* Wallet.swift in Sources */,
 				A5668C2E27A0792500B0563F /* ContentView.swift in Sources */,
+				A502FBE627BE85E8009EF5DC /* Card.swift in Sources */,
+				A502FBEA27BE8DF1009EF5DC /* CardFullscreenView.swift in Sources */,
 				A5668C2C27A0792500B0563F /* QRWalletApp.swift in Sources */,
+				A502FBEC27BE8E22009EF5DC /* CardListView.swift in Sources */,
+				A5DD6BA627A14B4100465EE7 /* QR.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,6 +369,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A56AFEA827A093E50019CBC3 /* XCRemoteSwiftPackageReference "CodeScanner" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/twostraws/CodeScanner";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A56AFEA927A093E50019CBC3 /* CodeScanner */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A56AFEA827A093E50019CBC3 /* XCRemoteSwiftPackageReference "CodeScanner" */;
+			productName = CodeScanner;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A5668C2027A0792500B0563F /* Project object */;
 }
