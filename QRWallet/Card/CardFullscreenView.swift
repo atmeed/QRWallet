@@ -28,7 +28,7 @@ struct CardFullscreenView: View {
 
     var body: some View {
         
-        VStack {
+        ScrollView(.vertical) {
             //Выход
             HStack {
                 Spacer()
@@ -41,6 +41,8 @@ struct CardFullscreenView: View {
                         .background(Color.white)
                         .clipShape(RoundedRectangle(cornerRadius: 25, style: .continuous))
                         .shadow(radius: 15)
+                        .padding(.horizontal, 10)
+                        .padding(.top, 10)
                 }
                 
             }
@@ -139,12 +141,12 @@ struct CardFullscreenView: View {
                     
                 
             }
-            .frame(width: 350)
+            
+
             
             
             
-            
-        }.padding()
+        }
         
         
     }
