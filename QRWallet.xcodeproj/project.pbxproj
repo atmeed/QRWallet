@@ -15,12 +15,13 @@
 		A5668C3027A0792700B0563F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5668C2F27A0792700B0563F /* Assets.xcassets */; };
 		A5668C3327A0792700B0563F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5668C3227A0792700B0563F /* Preview Assets.xcassets */; };
 		A56AFEAA27A093E50019CBC3 /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = A56AFEA927A093E50019CBC3 /* CodeScanner */; };
+		A595CAA827C14E9400F755EC /* AddNewQRView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A595CAA727C14E9400F755EC /* AddNewQRView.swift */; };
 		A5DD6BA627A14B4100465EE7 /* QR.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DD6BA527A14B4100465EE7 /* QR.swift */; };
 		A5E3832227B2818A00F0209C /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E3832127B2818A00F0209C /* Wallet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		A502FBE527BE85E8009EF5DC /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = SOURCE_ROOT; };
+		A502FBE527BE85E8009EF5DC /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Card.swift; path = QRWallet/Card/Card.swift; sourceTree = SOURCE_ROOT; };
 		A502FBE927BE8DF1009EF5DC /* CardFullscreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardFullscreenView.swift; sourceTree = "<group>"; };
 		A502FBEB27BE8E22009EF5DC /* CardListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListView.swift; sourceTree = "<group>"; };
 		A5668C2827A0792500B0563F /* QRWallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QRWallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -28,7 +29,8 @@
 		A5668C2D27A0792500B0563F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A5668C2F27A0792700B0563F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A5668C3227A0792700B0563F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		A5DD6BA527A14B4100465EE7 /* QR.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = QR.swift; path = ../QR.swift; sourceTree = "<group>"; };
+		A595CAA727C14E9400F755EC /* AddNewQRView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewQRView.swift; sourceTree = "<group>"; };
+		A5DD6BA527A14B4100465EE7 /* QR.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QR.swift; sourceTree = "<group>"; };
 		A5E3832127B2818A00F0209C /* Wallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wallet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -63,11 +65,10 @@
 		A5668C2A27A0792500B0563F /* QRWallet */ = {
 			isa = PBXGroup;
 			children = (
-				A5DD6BA527A14B4100465EE7 /* QR.swift */,
-				A502FBE527BE85E8009EF5DC /* Card.swift */,
-				A502FBE927BE8DF1009EF5DC /* CardFullscreenView.swift */,
-				A502FBEB27BE8E22009EF5DC /* CardListView.swift */,
+				A595CAA627C11AC700F755EC /* Card */,
 				A5E3832127B2818A00F0209C /* Wallet.swift */,
+				A595CAA727C14E9400F755EC /* AddNewQRView.swift */,
+				A5DD6BA527A14B4100465EE7 /* QR.swift */,
 				A5668C2B27A0792500B0563F /* QRWalletApp.swift */,
 				A5668C2D27A0792500B0563F /* ContentView.swift */,
 				A5668C2F27A0792700B0563F /* Assets.xcassets */,
@@ -82,6 +83,16 @@
 				A5668C3227A0792700B0563F /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		A595CAA627C11AC700F755EC /* Card */ = {
+			isa = PBXGroup;
+			children = (
+				A502FBEB27BE8E22009EF5DC /* CardListView.swift */,
+				A502FBE927BE8DF1009EF5DC /* CardFullscreenView.swift */,
+				A502FBE527BE85E8009EF5DC /* Card.swift */,
+			);
+			path = Card;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -166,6 +177,7 @@
 				A502FBEA27BE8DF1009EF5DC /* CardFullscreenView.swift in Sources */,
 				A5668C2C27A0792500B0563F /* QRWalletApp.swift in Sources */,
 				A502FBEC27BE8E22009EF5DC /* CardListView.swift in Sources */,
+				A595CAA827C14E9400F755EC /* AddNewQRView.swift in Sources */,
 				A5DD6BA627A14B4100465EE7 /* QR.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -300,6 +312,8 @@
 				DEVELOPMENT_TEAM = Z9WSPRMW9Y;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -329,6 +343,8 @@
 				DEVELOPMENT_TEAM = Z9WSPRMW9Y;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
