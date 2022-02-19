@@ -12,8 +12,8 @@ import SwiftUI
 class Card: ObservableObject {
     
     //Основные характеристики карты
-    var qr: QR
-    var name: String
+    @Published var qr: QR
+    @Published var name: String
     
     //Дополнительные характеристики
     var pinned = false //Закреплена ли карта в кошельке

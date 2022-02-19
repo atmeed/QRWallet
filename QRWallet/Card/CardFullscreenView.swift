@@ -17,6 +17,9 @@ struct CardFullscreenView: View {
     //Кнопка поделится
     @State private var isShowingSharingSheet = false
     
+    //Кнопка изменения текста
+    @FocusState private var nameIsFocused: Bool
+    
     
     
     //Закрытие View
@@ -48,6 +51,7 @@ struct CardFullscreenView: View {
                     .font(.system(size: 40, weight: .heavy, design: .default))
                     .multilineTextAlignment(.center)
                     .padding(.horizontal)
+                    .focused($nameIsFocused)
                     
                     
                     
