@@ -56,7 +56,7 @@ struct CardListView: View {
             .frame(width: 175, height: 210)
             .background(.ultraThickMaterial)
             .cornerRadius(25)
-        }.fullScreenCover(isPresented: $isPresentedFullscreen) {
+        }.sheet(isPresented: $isPresentedFullscreen) {
             CardFullscreenView(card: card)
         }
         

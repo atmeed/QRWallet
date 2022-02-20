@@ -20,6 +20,9 @@ struct CardFullscreenView: View {
     //Кнопка изменения текста
     @FocusState private var nameIsFocused: Bool
     
+    //Кнопка добавить в избранное
+    
+    
     
     
     //Закрытие View
@@ -29,23 +32,7 @@ struct CardFullscreenView: View {
     var body: some View {
         
         ScrollView(.vertical) {
-            //Выход
-            HStack {
-                Spacer()
-                Button(action: {
-                    presentationMode.wrappedValue.dismiss()
-                }) {
-                    Image(systemName: "multiply")
-                        .frame(width: 40, height: 40)
-                        .foregroundColor(Color.black)
-                        .background(Color.white)
-                        .clipShape(RoundedRectangle(cornerRadius: 25, style: .continuous))
-                        .shadow(radius: 15)
-                        .padding(.horizontal, 10)
-                        .padding(.top, 10)
-                }
-                
-            }
+            
             
             //Название QR
             HStack(spacing: 65) {
@@ -54,6 +41,8 @@ struct CardFullscreenView: View {
                     .multilineTextAlignment(.center)
                     .padding(.horizontal)
                     .focused($nameIsFocused)
+                    .padding(.top, 25)
+                    .padding(.bottom, 10)
                     
                     
                     
@@ -67,11 +56,12 @@ struct CardFullscreenView: View {
                     .resizable()
                     .scaledToFit()
                     .frame(width: 325, height: 325)
+                    .background(.ultraThickMaterial)
             }
-            .frame(width: 350, height: 350)
+            .frame(width: 335, height: 335)
             .background(Color.white)
             .clipShape(RoundedRectangle(cornerRadius: 25, style: .continuous))
-            .shadow(radius: 5)
+            .shadow(radius: 2)
             
             //Данные QR
             VStack {
@@ -101,9 +91,10 @@ struct CardFullscreenView: View {
                                 }
                 }
             
-            Spacer()
+            
 
             //Кнопки взаимодействия
+            
             HStack {
             
                 //Кнопка поделиться
@@ -123,13 +114,20 @@ struct CardFullscreenView: View {
                     ShareSheet(activityItems: [card.qr.image], applicationActivities: nil)
                 })
                 
-                //Кнопка удалить
+                //Кнопка Добавить в избранное
                 Button(action: {
+                    card.pinned.toggle()
                     
                 }) {
                     HStack {
-                        Image(systemName: "trash")
-                            .foregroundColor(.red)
+                        if card.pinned {
+                            Image(systemName: "star.fill")
+                                .foregroundColor(.yellow)
+                        } else {
+                            Image(systemName: "star")
+                                .foregroundColor(.yellow)
+                        }
+                        
                     }
                     .frame(width: 160, height: 50)
                     .background(.ultraThickMaterial)
@@ -142,11 +140,26 @@ struct CardFullscreenView: View {
                 
             }
             
+            Spacer()
+            
+            
+            //Кнопка удалить
+            Button(action: {
+                
+            }) {
+                Text("Delete")
+                    .frame(width: 330, height: 50)
+                    .foregroundColor(.red)
+                    .background(.ultraThickMaterial)
+                    .clipShape(RoundedRectangle(cornerRadius: 15, style: .continuous))
+            }
+            
 
             
             
             
         }
+        
         
         
     }

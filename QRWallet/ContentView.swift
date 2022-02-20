@@ -54,7 +54,7 @@ struct ContentView: View {
                 }) {
                     Image(systemName: "camera")
                         .foregroundColor(.white)
-                        .frame(width: 170, height: 50)
+                        .frame(width: 170, height: 60)
                         .background(Color(#colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1)))
                         .cornerRadius(10)
                 }.sheet(isPresented: $isPresentingScanner) {
@@ -67,7 +67,7 @@ struct ContentView: View {
                 }) {
                     Image(systemName: "photo.on.rectangle.angled")
                         .foregroundColor(.white)
-                        .frame(width: 170, height: 50)
+                        .frame(width: 170, height: 60)
                         .background(Color(#colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1)))
                         .cornerRadius(10)
                 }
@@ -99,6 +99,7 @@ struct ContentView: View {
                     
                 }
             }
+            
         }
         
         

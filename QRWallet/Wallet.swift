@@ -10,7 +10,7 @@ import Foundation
 
 final class Wallet: ObservableObject {
     
-    @Published var cards: [Card] = [] //Все карты
+    @Published var cards: [Card] = [Card(qr: QR(text: "хуйкин"))] //Все карты
     
     
 }
