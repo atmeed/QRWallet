@@ -12,13 +12,14 @@ import CodeScanner
 
 struct ContentView: View {
     
+    //MARK: - Variables
+    
     //Кошелек
     @ObservedObject var wallet = Wallet()
     
     //Сканер
     @State var isPresentingScanner = false
     @State var scannedCode: String = "Scan QR code to get started"
-    
     //Сам сканер
     var scannedSheet: some View {
         CodeScannerView (
@@ -37,66 +38,81 @@ struct ContentView: View {
         )
     }
     
+    
     //Лист с уже отсканированными кодами
     private var columnCount: Int = 2
+    
+    
     
     
     var body: some View {
         
         VStack {
             
-            //Кнопки скана
-            HStack {
+            
+            //MARK: - Top bar
+            VStack {
                 
-                //Камера
-                Button(action: {
-                    self.isPresentingScanner = true
-                }) {
-                    Image(systemName: "camera")
-                        .foregroundColor(.white)
-                        .frame(width: 170, height: 60)
-                        .background(Color(#colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1)))
-                        .cornerRadius(10)
-                }.sheet(isPresented: $isPresentingScanner) {
-                    self.scannedSheet
-                }
                 
-                //Фотография
-                Button(action: {
+                //MARK: Scan Buttons
+                HStack {
                     
-                }) {
-                    Image(systemName: "photo.on.rectangle.angled")
-                        .foregroundColor(.white)
-                        .frame(width: 170, height: 60)
-                        .background(Color(#colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1)))
-                        .cornerRadius(10)
-                }
-                
-                
-            }
-            
-            
-            
-            
-            //Лист всех карт
-            ScrollView(.vertical) {
-                let count = wallet.cards.count
-                let rowCount = (Double(count) / Double(columnCount)).rounded(.up)
-                
-                ForEach(0..<Int(rowCount), id: \.self) { row in
-                    Spacer()
-                    HStack() {
-                        ForEach(0..<self.columnCount, id: \.self) { column in
-                            let index = row * columnCount + column
-                            if index < count {
-                                CardListView(name: self.wallet.cards[index].name , text: self.wallet.cards[index].qr.text)
-                            } else {
-                                Spacer().frame(maxWidth: .infinity)
-                            }
-                            
-                        }.frame(width: 180)
+                    //Camera
+                    Button(action: {
+                        self.isPresentingScanner = true
+                    }) {
+                        Image(systemName: "camera")
+                            .foregroundColor(.white)
+                            .frame(width: 170, height: 60)
+                            .background(Color(#colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1)))
+                            .cornerRadius(10)
+                    }.sheet(isPresented: $isPresentingScanner) {
+                        self.scannedSheet
                     }
                     
+                    //Photo
+                    Button(action: {
+                        
+                    }) {
+                        Image(systemName: "photo.on.rectangle.angled")
+                            .foregroundColor(.white)
+                            .frame(width: 170, height: 60)
+                            .background(Color(#colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1)))
+                            .cornerRadius(10)
+                    }
+                    
+                    
+                }
+            }
+            .background(.red)
+            .frame(width: 350, height: 300)
+            
+            
+            
+            
+            
+            //MARK: - Card list
+            
+            VStack {
+                ScrollView(.vertical) {
+                    let count = wallet.cards.count
+                    let rowCount = (Double(count) / Double(columnCount)).rounded(.up)
+                    
+                    ForEach(0..<Int(rowCount), id: \.self) { row in
+                        Spacer()
+                        HStack() {
+                            ForEach(0..<self.columnCount, id: \.self) { column in
+                                let index = row * columnCount + column
+                                if index < count {
+                                    CardListView(name: self.wallet.cards[index].name , text: self.wallet.cards[index].qr.text)
+                                } else {
+                                    Spacer().frame(maxWidth: .infinity)
+                                }
+                                
+                            }.frame(width: 180)
+                        }
+                        
+                    }
                 }
             }
             

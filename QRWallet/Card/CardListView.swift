@@ -10,8 +10,8 @@ import SwiftUI
 struct CardListView: View {
     
     @ObservedObject var card: Card
-    
-    
+
+
     //Показ полного окна
     @State private var isPresentedFullscreen = false
     

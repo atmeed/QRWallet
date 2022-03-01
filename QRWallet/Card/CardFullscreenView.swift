@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct CardFullscreenView: View {
+    
+    //MARK: - Variable
     //Основной QR
-    @State var card: Card
+    @ObservedObject var card: Card
     
     //Анимация копирования текста
     @State private var copyText = false
@@ -20,21 +22,14 @@ struct CardFullscreenView: View {
     //Кнопка изменения текста
     @FocusState private var nameIsFocused: Bool
     
-    //Кнопка добавить в избранное
-    
-    
-    
-    
     //Закрытие View
     @Environment(\.presentationMode) var presentationMode
     
-
+    //MARK: - Body
     var body: some View {
         
         ScrollView(.vertical) {
-            
-            
-            //Название QR
+            //MARK: Name QR
             HStack(spacing: 65) {
                 TextField("\(card.name)", text: $card.name)
                     .font(.system(size: 40, weight: .heavy, design: .default))
@@ -43,13 +38,11 @@ struct CardFullscreenView: View {
                     .focused($nameIsFocused)
                     .padding(.top, 25)
                     .padding(.bottom, 10)
-                    
-                    
-                    
                 
             }.frame(width: 340)
             
-            //Сам QR
+            
+            //MARK: Image QR
             VStack {
                 Image(uiImage: card.qr.image)
                     .interpolation(.none)
@@ -63,7 +56,8 @@ struct CardFullscreenView: View {
             .clipShape(RoundedRectangle(cornerRadius: 25, style: .continuous))
             .shadow(radius: 2)
             
-            //Данные QR
+            
+            //MARK: QR Data
             VStack {
                 if copyText {
                     HStack {
@@ -91,13 +85,13 @@ struct CardFullscreenView: View {
                                 }
                 }
             
-            
+            Spacer()
 
-            //Кнопки взаимодействия
+            //MARK: - Edit buttons
             
             HStack {
             
-                //Кнопка поделиться
+                //MARK: Share Button
                 Button(action: {
                     self.isShowingSharingSheet = true
                 }) {
@@ -107,14 +101,12 @@ struct CardFullscreenView: View {
                     .frame(width: 160, height: 50)
                     .background(.ultraThickMaterial)
                     .clipShape(RoundedRectangle(cornerRadius: 15, style: .continuous))
-                    
-                    
-                    
                 }.sheet(isPresented: $isShowingSharingSheet, content: {
                     ShareSheet(activityItems: [card.qr.image], applicationActivities: nil)
                 })
                 
-                //Кнопка Добавить в избранное
+                
+                //MARK: Pin Button
                 Button(action: {
                     card.pinned.toggle()
                     
@@ -133,17 +125,13 @@ struct CardFullscreenView: View {
                     .background(.ultraThickMaterial)
                     .clipShape(RoundedRectangle(cornerRadius: 15, style: .continuous))
                     
-                    
-                    
                 }
                     
                 
             }
             
-            Spacer()
             
-            
-            //Кнопка удалить
+            //MARK: Del Button
             Button(action: {
                 
             }) {
@@ -156,8 +144,6 @@ struct CardFullscreenView: View {
             
 
             
-            
-            
         }
         
         
@@ -166,7 +152,7 @@ struct CardFullscreenView: View {
 }
 
 
-//Поделитсья
+//MARK: - Extra struct
 struct ShareSheet: UIViewControllerRepresentable {
 
     let activityItems: [Any]

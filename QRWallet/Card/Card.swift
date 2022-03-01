@@ -16,7 +16,7 @@ class Card: ObservableObject {
     @Published var name: String
     
     //Дополнительные характеристики
-    var pinned = false //Закреплена ли карта в кошельке
+    @Published var pinned = false //Закреплена ли карта в кошельке
     
     //Основной инициализатор
     init(qr: QR, name: String) {
