@@ -16,10 +16,10 @@ struct ContentView: View {
     
     //Кошелек
     @ObservedObject var wallet = Wallet()
-    
     //Сканер
-    @State var isPresentingScanner = false
-    @State var scannedCode: String = "Scan QR code to get started"
+    @State private var isPresentingScanner = false
+    @State private var scannedCode: String = "Scan QR code to get started"
+    @State private var addSheet = false
     //Сам сканер
     var scannedSheet: some View {
         CodeScannerView (
@@ -29,8 +29,7 @@ struct ContentView: View {
                     self.scannedCode = code.string
                     self.isPresentingScanner = false
                     if (code.string != "") {
-                        wallet.cards.append(Card(qr: QR(text: code.string)))
-                        print(wallet.cards)
+                        print(code.string)
                     }
                     
                 }
@@ -47,7 +46,7 @@ struct ContentView: View {
     
     var body: some View {
         
-        VStack {
+        ScrollView(.vertical) {
             
             
             //MARK: - Top bar
@@ -84,8 +83,9 @@ struct ContentView: View {
                     
                 }
             }
-            .background(.red)
-            .frame(width: 350, height: 300)
+            .frame(width: 380, height: 400)
+            .background(.ultraThickMaterial)
+            .clipShape(RoundedRectangle(cornerRadius: 20))
             
             
             
