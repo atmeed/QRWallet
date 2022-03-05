@@ -22,10 +22,8 @@ struct CardFullscreenView: View {
     //Кнопка изменения текста
     @FocusState private var nameIsFocused: Bool
     
-    //Закрытие View
-    @Environment(\.presentationMode) var presentationMode
     
-    //MARK: - Body
+    //MARK: -
     var body: some View {
         
         ScrollView(.vertical) {
@@ -87,7 +85,7 @@ struct CardFullscreenView: View {
             
             Spacer()
 
-            //MARK: - Edit buttons
+            //MARK: Edit buttons
             
             HStack {
             

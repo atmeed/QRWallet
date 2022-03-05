@@ -9,8 +9,16 @@ import Foundation
 
 
 final class Wallet: ObservableObject {
+    //MARK: - Variables
     
     @Published var cards: [Card] = [Card(qr: QR(text: "хуйкин"))] //Все карты
+    
+    //MARK: - Function
+    
+    //Добавление карты
+    func addCard(card: Card) {
+        self.cards.append(card)
+    }
     
     
 }

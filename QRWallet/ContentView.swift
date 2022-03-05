@@ -16,40 +16,22 @@ struct ContentView: View {
     
     //Кошелек
     @ObservedObject var wallet = Wallet()
-    //Сканер
+    //Показ 
     @State private var isPresentingScanner = false
-    @State private var scannedCode: String = "Scan QR code to get started"
-    @State private var addSheet = false
-    //Сам сканер
-    var scannedSheet: some View {
-        CodeScannerView (
-            codeTypes: [.qr],
-            completion:  { result in
-                if case let .success(code) = result {
-                    self.scannedCode = code.string
-                    self.isPresentingScanner = false
-                    if (code.string != "") {
-                        print(code.string)
-                    }
-                    
-                }
-            }
-        )
-    }
-    
+
     
     //Лист с уже отсканированными кодами
     private var columnCount: Int = 2
     
     
     
-    
+    //MARK: -
     var body: some View {
         
         ScrollView(.vertical) {
             
             
-            //MARK: - Top bar
+            //MARK: Top bar
             VStack {
                 
                 
@@ -66,7 +48,8 @@ struct ContentView: View {
                             .background(Color(#colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1)))
                             .cornerRadius(10)
                     }.sheet(isPresented: $isPresentingScanner) {
-                        self.scannedSheet
+                        scannedSheet()
+                        #warning("Почини")
                     }
                     
                     //Photo
@@ -91,7 +74,7 @@ struct ContentView: View {
             
             
             
-            //MARK: - Card list
+            //MARK: Card list
             
             VStack {
                 ScrollView(.vertical) {
